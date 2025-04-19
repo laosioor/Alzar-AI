@@ -1,1 +1,1 @@
-This project is made for my Artificial Intelligence class, and consists on guessing the next Game of The Year (GOTY)
+This project is for my Artificial Intelligence class. It’s a GOTY (Game of the Year) predictor designed to guess the next award-winning game using AI.
