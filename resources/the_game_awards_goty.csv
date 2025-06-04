@@ -1,0 +1,63 @@
+Ano,Jogo,Desenvolvedor,Vencedor
+2014,Dragon Age: Inquisition,['BioWare'],True
+2014,Bayonetta 2,['PlatinumGames'],False
+2014,Dark Souls II,['FromSoftware'],False
+2014,Hearthstone,['Blizzard Entertainment'],False
+2014,Middle-earth: Shadow of Mordor,['Monolith Productions'],False
+2015,The Witcher 3: Wild Hunt,['CD Projekt Red'],True
+2015,Bloodborne,['FromSoftware'],False
+2015,Fallout 4,['Bethesda Game Studios'],False
+2015,Metal Gear Solid V: The Phantom Pain,['Kojima Productions'],False
+2015,Super Mario Maker,['Nintendo'],False
+2016,Overwatch,['Blizzard Entertainment'],True
+2016,Doom,['id Software'],False
+2016,Inside,['Playdead'],False
+2016,Titanfall 2,['Respawn Entertainment'],False
+2016,Uncharted 4: A Thief's End,['Naughty Dog'],False
+2017,The Legend of Zelda: Breath of the Wild,['Nintendo'],True
+2017,Horizon Zero Dawn,"['Guerrilla Games', 'Sony Interactive Entertainment']",False
+2017,Persona 5,['Atlus'],False
+2017,PlayerUnknown's Battlegrounds,['PUBG Corporation'],False
+2017,Super Mario Odyssey,['Nintendo'],False
+2018,God of War,"['Santa Monica Studio', 'Sony Interactive Entertainment']",True
+2018,Assassin's Creed Odyssey,"['Ubisoft Quebec', 'Ubisoft']",False
+2018,Celeste,['Maddy Makes Games'],False
+2018,Marvel's Spider-Man,"['Insomniac Games', 'Sony Interactive Entertainment']",False
+2018,Monster Hunter: World,['Capcom'],False
+2018,Red Dead Redemption 2,['Rockstar Games'],False
+2019,Sekiro: Shadows Die Twice,"['FromSoftware', 'Activision']",True
+2019,Control,"['Remedy Entertainment', '505 Games']",False
+2019,Death Stranding,"['Kojima Productions', 'Sony Interactive Entertainment']",False
+2019,The Outer Worlds,"['Obsidian Entertainment', 'Private Division']",False
+2019,Resident Evil 2,['Capcom'],False
+2019,Super Smash Bros. Ultimate,"['Bandai Namco Studios ,  Sora Ltd.', 'Nintendo']",False
+2020,The Last of Us Part II,"['Naughty Dog', 'Sony Interactive Entertainment']",True
+2020,Animal Crossing: New Horizons,['Nintendo'],False
+2020,Doom Eternal,"['id Software', 'Bethesda Softworks']",False
+2020,Final Fantasy VII Remake,['Square Enix'],False
+2020,Ghost of Tsushima,"['Sucker Punch Productions', 'Sony Interactive Entertainment']",False
+2020,Hades,['Supergiant Games'],False
+2021,It Takes Two,"['Hazelight Studios', 'Electronic Arts']",True
+2021,Deathloop,"['Arkane Studios', 'Bethesda Softworks']",False
+2021,Metroid Dread,"['MercurySteam', 'Nintendo']",False
+2021,Psychonauts 2,"['Double Fine', 'Xbox Game Studios']",False
+2021,Ratchet & Clank: Rift Apart,"['Insomniac Games', 'Sony Interactive Entertainment']",False
+2021,Resident Evil Village,['Capcom'],False
+2022,Elden Ring,"['FromSoftware', 'Bandai Namco Entertainment']",True
+2022,A Plague Tale: Requiem,"['Asobo Studio', 'Focus Entertainment']",False
+2022,God of War Ragnarök,"['Santa Monica Studio', 'Sony Interactive Entertainment']",False
+2022,Horizon Forbidden West,"['Guerrilla Games', 'Sony Interactive Entertainment']",False
+2022,Stray,"['BlueTwelve Studio', 'Annapurna Interactive']",False
+2022,Xenoblade Chronicles 3,"['Monolith Soft', 'Nintendo']",False
+2023,Baldur's Gate 3,['Larian Studios'],True
+2023,Alan Wake 2,"['Remedy Entertainment', 'Epic Games Publishing']",False
+2023,The Legend of Zelda: Tears of the Kingdom,"['Nintendo EPD', 'Nintendo']",False
+2023,Marvel's Spider-Man 2,"['Insomniac Games', 'Sony Interactive Entertainment']",False
+2023,Resident Evil 4,['Capcom'],False
+2023,Super Mario Bros. Wonder,"['Nintendo EPD', 'Nintendo']",False
+2024,Astro Bot,"['Team Asobi', 'Sony Interactive Entertainment']",True
+2024,Balatro,"['LocalThunk', 'Playstack']",False
+2024,Black Myth: Wukong,['Game Science'],False
+2024,Elden Ring: Shadow of the Erdtree,"['FromSoftware', 'Bandai Namco Entertainment']",False
+2024,Final Fantasy VII Rebirth,['Square Enix'],False
+2024,Metaphor: ReFantazio,"['Studio Zero', 'Sega']",False
