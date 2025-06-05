@@ -1,4 +1,4 @@
-Ano,Jogo,Desenvolvedor,Vencedor_GOTY,Indicacoes,Premiacoes
+Ano,Jogo,Desenvolvedor,Vencedor,Indicacoes,Premiacoes
 2014,Dragon Age: Inquisition,['BioWare'],True,2,2
 2014,Bayonetta 2,['PlatinumGames'],False,2,0
 2014,Dark Souls II,['FromSoftware'],False,3,0
@@ -36,7 +36,7 @@ Ano,Jogo,Desenvolvedor,Vencedor_GOTY,Indicacoes,Premiacoes
 2020,Doom Eternal,"['id Software', 'Bethesda Softworks']",False,5,0
 2020,Final Fantasy VII Remake,['Square Enix'],False,6,2
 2020,Ghost of Tsushima,"['Sucker Punch Productions', 'Sony Interactive Entertainment']",False,8,2
-2020,Hades,['Supergiant Games'],False,10,2
+2020,Hades,['Supergiant Games'],False,9,2
 2021,It Takes Two,"['Hazelight Studios', 'Electronic Arts']",True,6,3
 2021,Deathloop,"['Arkane Studios', 'Bethesda Softworks']",False,9,2
 2021,Metroid Dread,"['MercurySteam', 'Nintendo']",False,3,1

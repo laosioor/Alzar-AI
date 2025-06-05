@@ -1,0 +1,8 @@
+Python
+Pandas
+BeautifulSoup
+Requests
+re
+
+Páginas do Wikipedia do The Game Awards (2014-2024)
+
