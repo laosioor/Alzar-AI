@@ -126,7 +126,7 @@ for ano, url in urls.items():
     df = contabilizar_indicacoes_premiacoes(df, ano, url)
 
 # 💾 Exporta CSV final
-df.to_csv("the_game_awards_goty_corrigido.csv", index=False, encoding="utf-8")
+df.to_csv("the_game_awards_goty.csv", index=False, encoding="utf-8")
 
-print("\n✅ CSV final gerado com sucesso: the_game_awards_goty_corrigido.csv")
+print("\n✅ CSV final gerado com sucesso: the_game_awards_goty.csv")
 
