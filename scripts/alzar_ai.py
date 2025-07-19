@@ -4,17 +4,18 @@ Este script realiza uma análise de dados completa, compara múltiplos modelos d
 
 Compara Regressão Logística, Floresta Aleatória e Gradient Boosting para selecionar o modelo com melhor performance.
 
+Este script foca na pipeline de Machine Learning (pré-processamento, treinamento, avaliação e salvamento de modelos e resultados). A Análise Exploratória de Dados (AED) e outras visualizações interativas são tratadas no notebook Jupyter dedicado.
+
 1. Importação das Bibliotecas
 """
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import joblib  # Biblioteca para salvar e carregar o modelo
 import warnings
+import os # Importar para criar diretórios se não existirem
 
 # Importando os modelos
 from sklearn.linear_model import LogisticRegression
@@ -25,12 +26,16 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 
 # Configurações gerais
 warnings.filterwarnings('ignore')
-sns.set_style('whitegrid')
-plt.rcParams['figure.figsize'] = (12, 7)
-plt.rcParams['figure.dpi'] = 100
+
+# Criar diretórios se não existirem
+os.makedirs('data/', exist_ok=True)
+os.makedirs('models', exist_ok=True)
+os.makedirs('results', exist_ok=True)
+
 
 """2. Carregamento e Preparação dos Dados"""
 
+# Ajuste o caminho do arquivo para a estrutura de pastas
 file_path = 'data/Alzar_AI_Base_de_Dados.csv'
 
 try:
@@ -50,51 +55,16 @@ if not df.empty:
         df['Indicacoes'].fillna(df['Indicacoes'].median(), inplace=True)
     print("Dados preparados para análise.\n")
 
-"""3. Análise Exploratória de Dados"""
+"""3. Preparação para o Modelo
 
-print(">>> Passo 3: Análise Exploratória de Dados (AED)...")
-
-print("\nAnalisando o impacto do Número de Indicações...")
-plt.figure(figsize=(12, 8))
-# Combinação de Violin Plot com Strip Plot para máxima clareza
-#sns.violinplot(x='Vencedor', y='Indicacoes', data=df, inner=None, palette=['#4374B3', '#FF8C00'])
-sns.stripplot(x='Vencedor', y='Indicacoes', data=df, jitter=True, size=6, color='black', alpha=0.7)
-plt.title('Impacto do Nº de Indicações para Vencer o GOTY', fontsize=18, pad=20)
-plt.xticks([0, 1], ['Apenas Indicado', 'Vencedor do GOTY'], fontsize=12)
-plt.xlabel('')
-plt.ylabel('Total de Indicações Recebidas', fontsize=12)
-plt.show()
-
-# Gráficos individuais para as outras variáveis
-features_to_compare = {'Nota Metacritic': 'Nota do Metacritic', 'Review_Composto_Total': 'Review Composto Total', 'Hype': 'Nível de Hype'}
-for feature, title in features_to_compare.items():
-    print(f"\nAnalisando o impacto de: {title}...")
-    plt.figure(figsize=(10, 7))
-    sns.boxplot(x='Vencedor', y=feature, data=df, palette=['#4374B3', '#FF8C00'])
-    plt.title(f'Impacto de "{title}" para Vencer o GOTY', fontsize=16)
-    plt.xticks([0, 1], ['Apenas Indicado', 'Vencedor do GOTY'])
-    plt.xlabel('')
-    plt.ylabel(title)
-    plt.show()
-
-"""4. Análise de Correlação"""
-
-print("\n>>> Passo 4: Matriz de Correlação...")
-features_for_model = ['Indicacoes', 'Nota Metacritic', 'Review_Composto_Total', 'Hype']
-cols_for_corr = features_for_model + ['Vencedor']
-correlation_matrix = df[cols_for_corr].corr()
-plt.figure(figsize=(10, 7))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=.5)
-plt.title('Matriz de Correlação das Variáveis do Modelo', fontsize=16)
-plt.show()
-
-"""5. Preparação para o Modelo
-
-Aqui há uma divisão fixa de 80/20
+Aqui há uma divisão fixa de 80/20.
 São 62 jogos. Portanto, 49 foram usados para treino e os outros 13 para teste.
 """
 
-print("\n>>> Passo 5: Preparando dados para o modelo...")
+print("\n>>> Passo 3: Preparando dados para o modelo...")
+# Definindo as features para o modelo (movido para esta seção)
+features_for_model = ['Indicacoes', 'Nota Metacritic', 'Review_Composto_Total', 'Hype']
+
 X = df[features_for_model]
 y = df['Vencedor']
 n_test_samples = 13
@@ -106,9 +76,9 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 print(f"Dados divididos e padronizados: {len(X_train)} para treino, {len(X_test)} para teste.\n")
 
-"""6. Comparação de Modelos de Machine Learning"""
+"""4. Comparação de Modelos de Machine Learning"""
 
-print(">>> Passo 6: Treinando e Comparando Múltiplos Modelos...")
+print(">>> Passo 4: Treinando e Comparando Múltiplos Modelos...")
 
 models = {
     "Regressão Logística": LogisticRegression(random_state=42),
@@ -139,18 +109,9 @@ for name, model in models.items():
     print("\nRelatório de Classificação:")
     print(classification_report(y_test, y_pred, target_names=['Indicado', 'Vencedor'], zero_division=0))
 
-    # Plota a Matriz de Confusão
-    conf_matrix = confusion_matrix(y_test, y_pred)
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues',
-                xticklabels=['Previsto: Indicado', 'Previsto: Vencedor'],
-                yticklabels=['Real: Indicado', 'Real: Vencedor'])
-    plt.title(f'Matriz de Confusão - {name}', fontsize=16)
-    plt.show()
+"""5. Seleção do Melhor Modelo"""
 
-"""7. Seleção do Melhor Modelo"""
-
-print("\n>>> Passo 7: Selecionando o melhor modelo...")
+print("\n>>> Passo 5: Selecionando o melhor modelo...")
 
 # Encontra o nome do modelo com a maior acurácia
 best_model_name = max(results, key=lambda name: results[name]['accuracy'])
@@ -159,22 +120,22 @@ best_model = best_model_info['model']
 
 print(f"O melhor modelo foi '{best_model_name}' com uma acurácia de {best_model_info['accuracy']:.2%}.\n")
 
-"""8. Salvando o melhor Modelo e o Scaler"""
+"""6. Salvando o melhor Modelo e o Scaler"""
 
-print(">>> Passo 8: Salvando o melhor modelo e o scaler...")
+print(">>> Passo 6: Salvando o melhor modelo e o scaler...")
 joblib.dump(best_model, 'models/melhor_modelo_goty.pkl')
 joblib.dump(scaler, 'models/scaler_goty.pkl')
 print("Modelo salvo como 'melhor_modelo_goty.pkl'")
 print("Scaler salvo como 'scaler_goty.pkl'")
 
-"""9. Usando o melhor Modelo para analisar toda a planilha"""
+"""7. Usando o melhor Modelo para analisar toda a planilha"""
 
-print("\n>>> Passo 9: Usando o melhor modelo salvo para prever em TODA a planilha...")
+print("\n>>> Passo 7: Usando o melhor modelo salvo para prever em TODA a planilha...")
 
-loaded_model = joblib.load('melhor_modelo_goty.pkl')
-loaded_scaler = joblib.load('scaler_goty.pkl')
+loaded_model = joblib.load('models/melhor_modelo_goty.pkl')
+loaded_scaler = joblib.load('models/scaler_goty.pkl')
 
-X_full = df[features_for_model]
+X_full = df[features_for_model] # features_for_model já está definido
 X_full_scaled = loaded_scaler.transform(X_full)
 
 full_probabilities = loaded_model.predict_proba(X_full_scaled)[:, 1] * 100
@@ -194,9 +155,9 @@ print(f"Probabilidades de Vitória (usando {best_model_name})")
 print("="*70)
 print(full_results_df_display.to_string())
 
-"""10. Salvando os Resultados Finais em um novo arquivo"""
+"""8. Salvando os Resultados Finais em um novo arquivo"""
 
-print("\n>>> Passo 10: Salvando os resultados em um arquivo CSV...")
+print("\n>>> Passo 8: Salvando os resultados em um arquivo CSV...")
 
 output_csv_path = 'results/resultados_previsao_goty.csv'
 full_results_df.to_csv(output_csv_path, index=False, decimal='.', float_format='%.2f')
@@ -204,3 +165,4 @@ full_results_df.to_csv(output_csv_path, index=False, decimal='.', float_format='
 print(f"Resultados salvos com sucesso no arquivo: '{output_csv_path}'")
 
 print("\nAnálise concluída.")
+

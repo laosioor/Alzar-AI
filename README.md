@@ -42,16 +42,15 @@ pip install -r requirements.txt
 Make sure `Alzar_AI_Base_de_Dados.csv` is located on `data/`.
 
 ### 4. Executing...
-Run `alzar_ai.py` as usual:
+Run `alzar_ai.py` to train the models, evaluate their perfomance, select the best one, and save the generated artifacts (trained model, scaler, and prediction results CSV).
 ```bash
 python scripts/alzar_ai.py
 ```
+This script will print progress and classification reports to the console. Upon completion, `melhor_modelo_goty.pkl` and `scaler_goty.pkl` will be saved in the `models/` folder, and `resultados_previsao_goty.csv` in the `results/` folder.
 
 ## 📊 Analysis and Results
-The `alzar_ai.py` script executes the following steps:
+The `alzar_ai.py` executes the following steps:
 * **Data preps**: Reads the CSV, handles null values, and prepares the columns.
-* **Exploratory Data Analysis (EDA)**: Generates visualizations to understand the impact of 'Nominations', 'Metacritic Score', 'Total Composite Review', and 'Hype' on winning GOTY. The graphs will be displayed during execution.
-* **Correlation Analysis**: Displays a correlation matrix between the input variables and the 'Winner' variable.
 * **Model Comparison**: Trains and evaluates Logistic Regression, Random Forest, and Gradient Boosting. For each model, the following are displayed:
   * Accuracy
   * Classification Report (Precision, Recall, F1-Score)
