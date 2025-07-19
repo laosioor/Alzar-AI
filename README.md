@@ -7,7 +7,8 @@
 ```bash
 ├── Alzar-AI/
 │   ├── data/
-│   │   └── Alzar_AI_Base_de_Dados.csv
+│   │   ├── Alzar_AI_Base_de_Dados.csv
+│   │   └── Alzar_AI_Base_de_Dados.xlsx
 │   ├── models/
 │   │   ├── melhor_modelo_goty.pkl
 │   │   └── scaler_goty.pkl
