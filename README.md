@@ -53,9 +53,9 @@ The `alzar_ai.py` script executes the following steps:
 * **Exploratory Data Analysis (EDA)**: Generates visualizations to understand the impact of 'Nominations', 'Metacritic Score', 'Total Composite Review', and 'Hype' on winning GOTY. The graphs will be displayed during execution.
 * **Correlation Analysis**: Displays a correlation matrix between the input variables and the 'Winner' variable.
 * **Model Comparison**: Trains and evaluates Logistic Regression, Random Forest, and Gradient Boosting. For each model, the following are displayed:
- * Accuracy
- * Classification Report (Precision, Recall, F1-Score)
- * Confusion Matrix (visualization)
+  * Accuracy
+  * Classification Report (Precision, Recall, F1-Score)
+  * Confusion Matrix (visualization)
 * **Best Model Selection and Saving**: The model with the highest accuracy on the test set is selected and saved as `models/melhor_modelo_goty.pkl`, along with `models/scaler_goty.pkl`.
 * **Prediction on the Entire Dataset**: The saved model is loaded and used to predict the probability of winning for each game in the complete dataset. The results are displayed in the console and saved in `results/resultados_previsao_goty.csv`.
 
