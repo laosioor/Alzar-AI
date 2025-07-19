@@ -4,6 +4,7 @@
 <br>
 
 ## 📁 Project Structure
+``` bash
 ├── Alzar-AI/
 │   ├── data/
 │   │   └── Alzar_AI_Base_de_Dados.csv
@@ -17,5 +18,5 @@
 │   ├── .gitignore
 │   ├── README.md (this one that you are reading right now)
 │   ├── requirements.txt
-
+```
 <p>Made by: <a href="https://github.com/laosioor">Aloísio</a> & <a href="https://github.com/RezeScarlet">Clarisse</a>.</p>
